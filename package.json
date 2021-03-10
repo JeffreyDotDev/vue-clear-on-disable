@@ -39,6 +39,8 @@
   },
   "main": "./dist/clear-or-disable.common.js",
   "files": [
-    "dist/*"
+    "dist/*",
+    "src/*",
+    "*.json"
   ]
 }
