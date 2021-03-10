@@ -1,0 +1,44 @@
+{
+  "name": "clear-on-disable",
+  "description": "A small package for Vue that clears HTML form fields when they're being disabled",
+  "version": "0.0.2",
+  "private": false,
+  "author": {
+    "name": "Jeffrey Vercammen",
+    "email": "jeffrey@jeffrey.dev"
+  },
+  "repository": "https://github.com/JeffreyDotDev/clear-on-disable",
+  "bugs": "https://github.com/JeffreyDotDev/clear-on-disable/issues",
+  "keywords": [
+    "vue",
+    "form",
+    "clear",
+    "disable",
+    "v-model",
+    "reactive"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "build-library": "vue-cli-service build --target lib --inline-vue --name clear-or-disable src/plugins/clear-on-disable.js",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "main": "./dist/clear-or-disable.common.js",
+  "files": [
+    "dist/*"
+  ]
+}
