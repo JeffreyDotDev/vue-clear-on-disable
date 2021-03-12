@@ -3,7 +3,7 @@ import App from './App.vue'
 
 Vue.config.productionTip = false
 
-import ClearOnDisable from './plugins/clear-on-disable';
+import ClearOnDisable from './plugins/vue-clear-on-disable';
 Vue.use(ClearOnDisable);
 
 new Vue({

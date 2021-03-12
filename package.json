@@ -21,7 +21,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build-library": "vue-cli-service build --target lib --inline-vue --name clear-or-disable src/plugins/clear-on-disable.js",
+    "build-library": "vue-cli-service build --target lib --inline-vue --name vue-clear-or-disable src/plugins/vue-clear-on-disable.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -37,7 +37,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "vue-template-compiler": "^2.6.11"
   },
-  "main": "./dist/clear-or-disable.common.js",
+  "main": "./dist/vue-clear-or-disable.common.js",
   "files": [
     "dist/*",
     "src/*",
