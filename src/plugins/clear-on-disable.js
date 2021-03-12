@@ -14,15 +14,20 @@ const ClearOnDisable = {
 
     Vue.directive('clear-on-disable', {
       inserted(element) {
+        // Check if HTMLElement is a radio button, if so give a warning.
         if (!pluginOptions.disableRadioButtonWarning && element.tagName === 'INPUT' && element.type === 'radio') {
           console.warn('Using v-clear-on-disable on radio buttons has a weird effect, be careful of this.');
         }
 
+        // Create a new MutationObserver to watch the HTMLElement for changes
         new MutationObserver(mutations => {
+          // Loop through all mutations once the callback is called
           mutations.forEach(mutation => {
             const target = mutation.target;
 
+            // Check if the mutation is a disabled change and if the target is now disabled
             if (mutation.attributeName === 'disabled' && target.disabled) {
+              // Check for the kind of HTMLElement, clear it's value and trigger a input or change event
               switch (target.tagName) {
                 case 'INPUT':
                   switch (target.type) {
