@@ -7,8 +7,8 @@
     "name": "Jeffrey Vercammen",
     "email": "jeffrey@jeffrey.dev"
   },
-  "repository": "https://github.com/JeffreyDotDev/clear-on-disable",
-  "bugs": "https://github.com/JeffreyDotDev/clear-on-disable/issues",
+  "repository": "https://github.com/JeffreyDotDev/vue-clear-on-disable",
+  "bugs": "https://github.com/JeffreyDotDev/vue-clear-on-disable/issues",
   "keywords": [
     "vue",
     "form",
