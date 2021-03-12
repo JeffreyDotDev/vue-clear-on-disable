@@ -17,7 +17,7 @@ npm i clear-on-disable
 ### Use the package in your main file
 
 ```js
-import ClearOnDisable from 'clear-on-disable';
+import ClearOnDisable from 'vue-clear-on-disable';
 Vue.use(ClearOnDisable);
 ```
 
