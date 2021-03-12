@@ -1,24 +1,7 @@
-const defaultPluginOptions = {
-  disableRadioButtonWarning: false
-}
-
 const ClearOnDisable = {
-  /**
-   *
-   * @param Vue
-   * @param pluginOptions
-   * @param {Boolean} pluginOptions.disableRadioButtonWarning Disable the console warning when using v-clear-on-disable on radio buttons
-   */
-  install(Vue, pluginOptions) {
-    pluginOptions = {...defaultPluginOptions, ...pluginOptions};
-
+  install(Vue) {
     Vue.directive('clear-on-disable', {
       inserted(element) {
-        // Check if HTMLElement is a radio button, if so give a warning.
-        if (!pluginOptions.disableRadioButtonWarning && element.tagName === 'INPUT' && element.type === 'radio') {
-          console.warn('Using v-clear-on-disable on radio buttons has a weird effect, be careful of this. To disable this warning set disableRadioButtonWarning to true.');
-        }
-
         // Create a new MutationObserver to watch the HTMLElement for changes
         new MutationObserver(mutations => {
           // Loop through all mutations once the callback is called
@@ -37,7 +20,6 @@ const ClearOnDisable = {
                       break;
 
                     case 'checkbox':
-                    case 'radio':
                       target.checked = false;
                       target.dispatchEvent(new CustomEvent('change'));
                       break;
