@@ -46,3 +46,12 @@ Vue.use(ClearOnDisable);
 ```html
 <input type="checkbox" v-model="variable" :disabled="disableVariable" v-clear-on-disable />
 ```
+
+## Options
+The following options are available and have these default values:
+
+```js
+Vue.use(ClearOnDisable, {
+  disableRadioButtonWarning: false  // When using v-clear-on-disable on radio buttons you will get a console warning because there's weird behaviour.
+});
+```

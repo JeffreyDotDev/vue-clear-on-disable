@@ -16,7 +16,7 @@ const ClearOnDisable = {
       inserted(element) {
         // Check if HTMLElement is a radio button, if so give a warning.
         if (!pluginOptions.disableRadioButtonWarning && element.tagName === 'INPUT' && element.type === 'radio') {
-          console.warn('Using v-clear-on-disable on radio buttons has a weird effect, be careful of this.');
+          console.warn('Using v-clear-on-disable on radio buttons has a weird effect, be careful of this. To disable this warning set disableRadioButtonWarning to true.');
         }
 
         // Create a new MutationObserver to watch the HTMLElement for changes
