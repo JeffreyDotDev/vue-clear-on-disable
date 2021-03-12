@@ -1,5 +1,5 @@
 {
-  "name": "clear-on-disable",
+  "name": "vue-clear-on-disable",
   "description": "A small package for Vue that clears HTML form fields when they're being disabled",
   "version": "1.0.0",
   "private": false,
