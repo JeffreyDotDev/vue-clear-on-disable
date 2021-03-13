@@ -42,5 +42,8 @@
   },
   "main": "dist/vue-clear-on-disable.umd.js",
   "module": "dist/vue-clear-on-disable.esm.js",
-  "unpkg": "dist/vue-clear-on-disable.min.js"
+  "unpkg": "dist/vue-clear-on-disable.min.js",
+  "files": [
+    "dist/vue-clear-on-disable.*.js"
+  ]
 }
