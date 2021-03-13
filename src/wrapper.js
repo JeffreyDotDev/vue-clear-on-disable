@@ -8,7 +8,7 @@ export function install(Vue) {
   }
   install.installed = true;
 
-  Vue.directive('ClearOnDisable', ClearOnDisable);
+  Vue.directive('clear-on-disable', ClearOnDisable);
 }
 
 // Create module definition for Vue.use()
@@ -27,5 +27,5 @@ if (GlobalVue) {
   GlobalVue.use(plugin);
 }
 
-// To allow use as module (npm/webpack/etc.) export component
-export default plugin;
+// To allow use as module (npm/webpack/etc.) export directive
+export default ClearOnDisable;

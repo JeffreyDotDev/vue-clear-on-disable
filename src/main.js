@@ -4,7 +4,7 @@ import App from './App.vue'
 Vue.config.productionTip = false
 
 import ClearOnDisable from './wrapper';
-Vue.use(ClearOnDisable);
+Vue.directive('clear-on-disable', ClearOnDisable);
 
 new Vue({
   render: h => h(App),

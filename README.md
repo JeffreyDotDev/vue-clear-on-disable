@@ -18,7 +18,7 @@ npm i vue-clear-on-disable
 
 ```js
 import ClearOnDisable from 'vue-clear-on-disable';
-Vue.use(ClearOnDisable);
+Vue.directive('clear-on-disable', ClearOnDisable);
 ```
 
 ## Usage
