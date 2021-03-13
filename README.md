@@ -7,7 +7,7 @@ A small package for Vue that clears HTML form fields when they're being disabled
 
 #### yarn
 ```shell
-yarn vue-add clear-on-disable
+yarn add vue-clear-on-disable
 ```
 #### npm
 ```shell
