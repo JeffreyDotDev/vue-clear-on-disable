@@ -1,10 +1,4 @@
 function inserted(element, binding, vNode) {
-  let vModel;
-  if (vNode.data && vNode.data.directives) {
-    // Vue 2
-    vModel = vNode.data.directives.find(directive => directive.rawName === 'v-model');
-  }
-
   // Create a new MutationObserver to watch the HTMLElement for changes
   new MutationObserver(mutations => {
     // Loop through all mutations once the callback is called
@@ -38,6 +32,7 @@ function inserted(element, binding, vNode) {
                     vNode.props["onUpdate:modelValue"]();
                   } else {
                     // Vue 2
+                    const vModel = vNode.data.directives.find(directive => directive.rawName === 'v-model');
                     if (vModel) {
                       vNode.context[vModel.expression] = '';
                     }
