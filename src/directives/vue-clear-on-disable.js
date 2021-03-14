@@ -21,6 +21,24 @@ function inserted(element, binding, vNode) {
                 target.checked = false;
                 target.dispatchEvent(new CustomEvent('change'));
                 break;
+
+              case 'radio':
+                /*
+                 Radio buttons work a bit strange and can not simply be turned off. For this reason v-clear-on-disable
+                 on radio buttons checks for the v-model and then changes it's value directly.
+                */
+                if (target.checked) {
+                  if (vNode.props && vNode.props['onUpdate:modelValue']) {
+                    // Vue 3
+                    vNode.props["onUpdate:modelValue"]();
+                  } else {
+                    // Vue 2
+                    if (vModel) {
+                      vNode.context[vModel.expression] = '';
+                    }
+                  }
+                }
+                break;
             }
             break;
 

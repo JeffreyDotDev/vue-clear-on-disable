@@ -46,3 +46,11 @@ Vue.directive('clear-on-disable', ClearOnDisable);
 ```html
 <input type="checkbox" v-model="variable" :disabled="disableVariable" v-clear-on-disable />
 ```
+
+### Radio
+Radio buttons work a bit strange and can not simply be turned off. For this reason `v-clear-on-disable` on radio buttons checks for the v-model and then changes it's value directly. This could cause weird behaviour but should work for most.
+
+```html
+<input type="radio" value="one" v-model="variable" :disabled="disableVariable" v-clear-on-disable />
+<input type="radio" value="two" v-model="variable" :disabled="disableVariable" v-clear-on-disable />
+```

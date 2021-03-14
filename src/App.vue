@@ -1,42 +1,53 @@
 <template>
   <div id="app">
-    <div class="row">
-      <h1>Toggle disable on all fields</h1>
-      <button @click="disableAllFields = !disableAllFields">Toggle {{ disableAllFields ? 'off' : 'on' }}</button>
-    </div>
-    <div class="row">
-      <h1>Fields</h1>
-    </div>
-    <div class="row">
-      <label>
-        Text value: {{ text }}
-        <input type="text" v-model="text" :disabled="disableAllFields" v-clear-on-disable />
-      </label>
-    </div>
-    <div class="row">
-      <label>
-        Textarea value: {{ textarea }}
-        <textarea v-model="textarea" :disabled="disableAllFields" v-clear-on-disable></textarea>
-      </label>
-    </div>
-    <div class="row">
-      <label>
-        Select value: {{ select }}
-        <select v-model="select" :disabled="disableAllFields" v-clear-on-disable>
-          <option value="one">One</option>
-          <option value="two">Two</option>
-          <option value="three">Three</option>
-        </select>
-      </label>
-    </div>
-    <div class="row">
-      <label>
-        Checkbox value: {{ checkbox }}
-        <div>
-          <input type="checkbox" v-model="checkbox" :disabled="disableAllFields" v-clear-on-disable />
-        </div>
-      </label>
-    </div>
+    <form @submit.prevent>
+      <div class="row">
+        <h1>Toggle disable on all fields</h1>
+        <button @click="disableAllFields = !disableAllFields">Toggle {{ disableAllFields ? 'off' : 'on' }}</button>
+      </div>
+      <div class="row">
+        <h1>Fields</h1>
+      </div>
+      <div class="row">
+        <label>
+          Text value: {{ text }}
+          <input type="text" v-model="text" :disabled="disableAllFields" v-clear-on-disable />
+        </label>
+      </div>
+      <div class="row">
+        <label>
+          Textarea value: {{ textarea }}
+          <textarea v-model="textarea" :disabled="disableAllFields" v-clear-on-disable></textarea>
+        </label>
+      </div>
+      <div class="row">
+        <label>
+          Select value: {{ select }}
+          <select v-model="select" :disabled="disableAllFields" v-clear-on-disable>
+            <option value="one">One</option>
+            <option value="two">Two</option>
+            <option value="three">Three</option>
+          </select>
+        </label>
+      </div>
+      <div class="row">
+        <label>
+          Checkbox value: {{ checkbox }}
+          <div>
+            <input type="checkbox" v-model="checkbox" :disabled="disableAllFields" v-clear-on-disable />
+          </div>
+        </label>
+      </div>
+      <div class="row">
+        <label>
+          Radio value: {{ radio }}
+          <div>
+            <input type="radio" v-model="radio" value="one" :disabled="disableAllFields" v-clear-on-disable />
+            <input type="radio" v-model="radio" value="two" :disabled="disableAllFields" v-clear-on-disable />
+          </div>
+        </label>
+      </div>
+    </form>
   </div>
 </template>
 
@@ -50,7 +61,8 @@ export default {
       text: 'foo',
       textarea: 'bar',
       select: 'one',
-      checkbox: true
+      checkbox: true,
+      radio: ''
     }
   }
 }
