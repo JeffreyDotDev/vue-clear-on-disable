@@ -1,6 +1,8 @@
 function inserted(element, binding, vNode) {
+  console.debug(vNode);
+
   let vModel;
-  if (vNode.data.directives) {
+  if (vNode.data && vNode.data.directives) {
     // Vue 2
     vModel = vNode.data.directives.find(directive => directive.rawName === 'v-model');
   }
