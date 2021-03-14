@@ -24,6 +24,7 @@ Vue.directive('clear-on-disable', ClearOnDisable);
 
 #### Vue 3
 ```js
+import ClearOnDisable from 'vue-clear-on-disable';
 createApp(App)
   .directive('clear-on-disable', ClearOnDisable)
   .mount('#app')
