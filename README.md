@@ -16,9 +16,17 @@ npm i vue-clear-on-disable
 
 ### Use the package in your main file
 
+#### Vue 2
 ```js
 import ClearOnDisable from 'vue-clear-on-disable';
 Vue.directive('clear-on-disable', ClearOnDisable);
+```
+
+#### Vue 3
+```js
+createApp(App)
+  .directive('clear-on-disable', ClearOnDisable)
+  .mount('#app')
 ```
 
 ## Usage
