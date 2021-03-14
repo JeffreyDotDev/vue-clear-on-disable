@@ -1,5 +1,10 @@
 function inserted(element, binding, vNode) {
-  const vModel = vNode.data.directives.find(directive => directive.rawName === 'v-model');
+  let vModel;
+  if (vNode.data.directives) {
+    // Vue 2
+    vModel = vNode.data.directives.find(directive => directive.rawName === 'v-model');
+  }
+
   // Create a new MutationObserver to watch the HTMLElement for changes
   new MutationObserver(mutations => {
     // Loop through all mutations once the callback is called
