@@ -1,5 +1,5 @@
 # vue-clear-on-disable
-A small package for Vue that clears HTML form fields when they're being disabled.
+A small package for Vue 2 and Vue 3 that clears HTML form fields when they're being disabled.
 
 ## Install
 

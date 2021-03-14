@@ -1,4 +1,5 @@
-function inserted(element) {
+function inserted(element, binding, vNode) {
+  const vModel = vNode.data.directives.find(directive => directive.rawName === 'v-model');
   // Create a new MutationObserver to watch the HTMLElement for changes
   new MutationObserver(mutations => {
     // Loop through all mutations once the callback is called
@@ -39,6 +40,6 @@ function inserted(element) {
 }
 
 export default {
-  inserted,
-  mounted: inserted
+  inserted,         // Vue 2
+  mounted: inserted // Vue 3
 }
