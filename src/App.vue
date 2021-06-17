@@ -3,7 +3,11 @@
     <form @submit.prevent>
       <div class="row">
         <h1>Toggle disable on all fields</h1>
-        <button @click="disableAllFields = !disableAllFields">Toggle {{ disableAllFields ? 'off' : 'on' }}</button>
+        <div>
+          <label>
+            <input type="checkbox" v-model="disableAllFields" /> Disabled
+          </label>
+        </div>
       </div>
       <div class="row">
         <h1>Fields</h1>
@@ -47,6 +51,29 @@
           </div>
         </label>
       </div>
+      <div class="row">
+        <hr />
+        <h1>Toggle clear</h1>
+        <div>
+          <label>
+            <input type="checkbox" v-model="mustClear" /> Must clear
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" v-model="disableAllFields" /> Disabled
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <h1>Fields</h1>
+      </div>
+      <div class="row">
+        <label>
+          Must clear value: {{ mustClearExample }}
+          <input type="text" v-model="mustClearExample" :disabled="disableAllFields" v-clear-on-disable="mustClear" />
+        </label>
+      </div>
     </form>
   </div>
 </template>
@@ -62,7 +89,10 @@ export default {
       textarea: 'bar',
       select: 'one',
       checkbox: true,
-      radio: ''
+      radio: '',
+
+      mustClear: true,
+      mustClearExample: 'Foo bar'
     }
   }
 }
@@ -77,6 +107,10 @@ export default {
   border-radius: 8px;
   font-size: large;
   font-family: sans-serif;
+}
+
+label {
+  user-select: none;
 }
 
 /*

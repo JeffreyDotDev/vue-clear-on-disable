@@ -63,3 +63,10 @@ Radio buttons work a bit strange and can not simply be turned off. For this reas
 <input type="radio" value="one" v-model="variable" :disabled="disableVariable" v-clear-on-disable />
 <input type="radio" value="two" v-model="variable" :disabled="disableVariable" v-clear-on-disable />
 ```
+
+### Toggle clear
+In some cases you may decide not want to clear an input. In that case you can set the value with a boolean variable. If this boolean is set to false the form field will not be cleared. 
+
+```html
+<input type="text" v-model="variable" :disabled="disableVariable" v-clear-on-disable="mustClearBoolean" />
+```

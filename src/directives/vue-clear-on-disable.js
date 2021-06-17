@@ -1,17 +1,23 @@
 function inserted(element, binding, vNode) {
+  element.dataset.mustClear = binding.value ?? true;
   // Create a new MutationObserver to watch the HTMLElement for changes
   new MutationObserver(mutations => {
     // Loop through all mutations once the callback is called
     mutations.forEach(mutation => {
       const target = mutation.target;
 
+      if (element.dataset.mustClear == "false") {
+        return false;
+      }
+
       // Check if the mutation is a disabled change and if the target is now disabled
-      if (mutation.attributeName === 'disabled' && target.disabled) {
+      if ((mutation.attributeName === 'disabled' || mutation.attributeName === 'data-must-clear') && target.disabled) {
         // Check for the kind of HTMLElement, clear it's value and trigger a input or change event
         switch (target.tagName) {
           case 'INPUT':
             switch (target.type) {
               case 'text':
+                console.debug('value', element.dataset.mustClear);
                 target.value = '';
                 target.dispatchEvent(new CustomEvent('input'));
                 break;
@@ -57,7 +63,16 @@ function inserted(element, binding, vNode) {
   }).observe(element, {attributes: true});
 }
 
+function componentUpdated(element, binding) {
+  element.dataset.mustClear = binding.value ? 'true' : 'false';
+}
+
 export default {
-  inserted,         // Vue 2
-  mounted: inserted // Vue 3
+  // Vue 2
+  inserted,
+  componentUpdated,
+
+  // Vue 3
+  mounted: inserted,
+  updated: componentUpdated
 }
