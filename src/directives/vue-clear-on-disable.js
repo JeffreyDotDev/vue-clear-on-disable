@@ -1,5 +1,5 @@
 function inserted(element, binding, vNode) {
-  element.dataset.mustClear = binding.value ?? true;
+  element.dataset.mustClear = binding.value ? 'true' : 'false';
   // Create a new MutationObserver to watch the HTMLElement for changes
   new MutationObserver(mutations => {
     // Loop through all mutations once the callback is called
