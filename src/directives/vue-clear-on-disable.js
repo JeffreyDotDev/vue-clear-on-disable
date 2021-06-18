@@ -1,5 +1,6 @@
 function inserted(element, binding, vNode) {
-  element.dataset.mustClear = binding.value ? 'true' : 'false';
+  updateValue(element, binding);
+
   // Create a new MutationObserver to watch the HTMLElement for changes
   new MutationObserver(mutations => {
     // Loop through all mutations once the callback is called
@@ -17,7 +18,6 @@ function inserted(element, binding, vNode) {
           case 'INPUT':
             switch (target.type) {
               case 'text':
-                console.debug('value', element.dataset.mustClear);
                 target.value = '';
                 target.dispatchEvent(new CustomEvent('input'));
                 break;
@@ -64,7 +64,15 @@ function inserted(element, binding, vNode) {
 }
 
 function componentUpdated(element, binding) {
-  element.dataset.mustClear = binding.value ? 'true' : 'false';
+  updateValue(element, binding);
+}
+
+function updateValue(element, binding) {
+  if (binding.value === undefined) {
+    element.dataset.mustClear = 'true';
+  } else {
+    element.dataset.mustClear = binding.value ? 'true' : 'false'
+  }
 }
 
 export default {

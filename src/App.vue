@@ -91,7 +91,7 @@ export default {
       checkbox: true,
       radio: '',
 
-      mustClear: true,
+      mustClear: false,
       mustClearExample: 'Foo bar'
     }
   }
